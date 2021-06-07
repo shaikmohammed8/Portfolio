@@ -56,6 +56,9 @@ Widget buildCard(String path, String text, String platform, Function fun) {
             height: 70,
             width: 70,
           ),
+          SizedBox(
+            height: 10,
+          ),
           Text(text, style: TextStyle(color: Colors.white70, fontSize: 16)),
           Spacer(),
           Text(platform, style: TextStyle(color: Colors.white24, fontSize: 12))

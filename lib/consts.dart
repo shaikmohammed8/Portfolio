@@ -1,23 +1,23 @@
 var projectsDetail = [
   {
-    'photo': "images/chatappflutter.jpg",
+    'photo': "assets/images/chatappflutter.jpg",
     'detail':
         "This is a chat and video call application made with flutter and firebase ",
     'title': "Flutter chat"
   },
   {
-    'photo': "images/flutterbook.jpg",
+    'photo': "assets/images/flutterbook.jpg",
     'detail': "A resposive UI design for both mobile and web ",
     'title': "Flutterbook"
   },
   {
-    'photo': "images/fluttersocial.jpg",
+    'photo': "assets/images/fluttersocial.jpg",
     'detail':
         "A beautiful social meadia application that build with flutter and firebase",
     'title': "Social hub"
   },
   {
-    'photo': "images/pjimage.jpg",
+    'photo': "assets/images/pjimage.jpg",
     'detail':
         "In the application you can who is also using this application near you and you can chat with them",
     'title': "Near me"

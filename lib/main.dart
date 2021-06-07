@@ -4,6 +4,7 @@ import 'package:first/screens/main/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: GoogleFonts.workSans().fontFamily,
         primarySwatch: Colors.blue,
       ),
       home: MainResponsive(),

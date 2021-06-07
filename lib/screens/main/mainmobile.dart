@@ -1,102 +1,112 @@
+import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/about/aboutResponsibe.dart';
 import 'package:first/screens/contact/contactresponsive.dart';
 import 'package:first/screens/home/homeresponsive.dart';
-import 'package:first/screens/home/homescreen.dart';
 import 'package:first/screens/portfolio/portfolioresponsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MobileMain extends StatelessWidget {
+  var fabkey = GlobalKey<FabCircularMenuState>();
   var controller = Get.put(MainController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF020c1b),
-        elevation: 0.0,
-      ),
-      drawer: Drawer(
-          child: Container(
-        color: Color(0xFF020c1b),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          DrawerHeader(
-              child: Center(
-            child: Text("{Mohammed}",
-                style: TextStyle(color: Colors.white, fontSize: 25)),
-          )),
-          buildListTile(
-            Icons.home_rounded,
-            "Home",
-            () {
-              controller.changeToHome();
-              Get.back();
-            },
-          ),
-          buildListTile(
-            Icons.person,
-            "About",
-            () {
-              controller.cahngeToAbout();
-              Get.back();
-            },
-          ),
-          buildListTile(
-            Icons.work,
-            "Portfolio",
-            () {
-              controller.changeToPortFolio();
-              Get.back();
-            },
-          ),
-          buildListTile(
-            Icons.phone_enabled_rounded,
-            "Contact",
-            () {
-              controller.changeToHome();
-              Get.back();
-            },
-          ),
-        ]),
-      )),
-      body: Container(
-        color: Color(0xFF020c1b),
-        padding: EdgeInsets.only(top: 16, left: 40, right: 40),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView(
-                  controller: controller.controller,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    HomeResponsive(),
-                    AboutResponsive(),
-                    PortFolioResponsive(),
-                    ContactResponsive()
-                  ],
-                  onPageChanged: controller.onPageChanged),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Obx(
+            () => Text(
+              appbarTitle(controller.index.value),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
-          ],
+          ),
+          backgroundColor: Color(0xFF020c1b),
+          elevation: 0.0,
         ),
-      ),
-    );
+        body: Container(
+          color: Color(0xFF020c1b),
+          padding: EdgeInsets.only(top: 2, left: 8, right: 8, bottom: 8),
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView(
+                    controller: controller.controller,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      HomeResponsive(),
+                      AboutResponsive(),
+                      PortFolioResponsive(),
+                      ContactResponsive()
+                    ],
+                    onPageChanged: controller.onPageChanged),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FabCircularMenu(
+            key: fabkey,
+            fabOpenIcon: Icon(Icons.sort, color: Color(0xFF020c1b)),
+            fabCloseIcon: Icon(Icons.clear, color: Color(0xFF26E07F)),
+            fabSize: 50,
+            ringColor: Color(0xFF154c79).withOpacity(0.3),
+            fabCloseColor: Color(0xFF26E07F),
+            fabOpenColor: Color(0xFF154c79).withOpacity(0.5),
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.email_rounded, color: Color(0xFF26E07F)),
+                  onPressed: () {
+                    controller.cahngeToContact();
+                    if (fabkey.currentState.isOpen) {
+                      fabkey.currentState.close();
+                    }
+                  }),
+              IconButton(
+                  icon: Icon(Icons.work_rounded, color: Color(0xFF26E07F)),
+                  onPressed: () {
+                    controller.changeToPortFolio();
+                    if (fabkey.currentState.isOpen) {
+                      fabkey.currentState.close();
+                    }
+                  }),
+              IconButton(
+                  icon: Icon(Icons.person_rounded, color: Color(0xFF26E07F)),
+                  onPressed: () {
+                    controller.cahngeToAbout();
+                    if (fabkey.currentState.isOpen) {
+                      fabkey.currentState.close();
+                    }
+                  }),
+              IconButton(
+                  icon: Icon(
+                    Icons.home_rounded,
+                    color: Color(0xFF26E07F),
+                  ),
+                  onPressed: () {
+                    controller.changeToHome();
+                    if (fabkey.currentState.isOpen) {
+                      fabkey.currentState.close();
+                    }
+                  }),
+            ]));
   }
 
-  Widget buildListTile(IconData iconData, String text, Function fun) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 12.0, top: 5),
-      child: ListTile(
-        onTap: fun,
-        minLeadingWidth: 15,
-        leading: Icon(
-          iconData,
-          color: Color(0xFF26E07F),
-        ),
-        title: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(text,
-                style: TextStyle(color: Colors.white, fontSize: 18))),
-      ),
-    );
+  String appbarTitle(int index) {
+    switch (index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "About";
+      case 2:
+        return "Work";
+      case 3:
+        return "Contact";
+        break;
+      default:
+        return "";
+    }
   }
 }

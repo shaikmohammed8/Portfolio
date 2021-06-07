@@ -21,24 +21,22 @@ class ContactTab extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Center(
-            child: edittextbuild(
-                "Name", Icons.person, controller.nameController, (val) {
-              if (GetUtils.isUsername(val)) {
-                return null;
-              } else
-                return "Please provide a valide name";
-            }, TextInputType.name, width: 600),
-          ),
+              child: edittextbuild(
+                  "Name", Icons.person, controller.nameController, (val) {
+            if (GetUtils.isUsername(val)) {
+              return null;
+            } else
+              return "Please provide a valide name";
+          }, TextInputType.name, width: double.infinity)),
           SizedBox(height: 12),
           Center(
-            child: edittextbuild(
-                "Email", Icons.mail, controller.emailController, (val) {
-              if (GetUtils.isEmail(val)) {
-                return null;
-              } else
-                return "Please provide a valide Email";
-            }, TextInputType.emailAddress, width: 600),
-          ),
+              child: edittextbuild(
+                  "Email", Icons.mail, controller.emailController, (val) {
+            if (GetUtils.isEmail(val)) {
+              return null;
+            } else
+              return "Please provide a valide Email";
+          }, TextInputType.emailAddress, width: double.infinity)),
           SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -132,14 +130,8 @@ class ContactTab extends StatelessWidget {
           SizedBox(height: 12),
           SizedBox(
             height: 200,
-            child: Swiper(
+            child: ListView.separated(
               itemCount: 3,
-              autoplay: true,
-              index: 1,
-              autoplayDisableOnInteraction: true,
-              loop: false,
-              viewportFraction: 0.9,
-              scale: 0.9,
               scrollDirection: Axis.horizontal,
               itemBuilder: (ctx, index) {
                 return buildCard(
@@ -148,6 +140,9 @@ class ContactTab extends StatelessWidget {
                     otherOptiosns[index]['platform'], () {
                   controller.launchUrl(otherOptiosns[index]['url']);
                 });
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return VerticalDivider(width: 10);
               },
             ),
           ),
@@ -158,19 +153,19 @@ class ContactTab extends StatelessWidget {
 
   List otherOptiosns = [
     {
-      'photo': 'images/icons8-mail-128.png',
+      'photo': 'assets/images/icons8-mail-128.png',
       'text': 'mohammedrazachandwala@gmail.com',
       'url': 'mailto:mohammedrazachandwala@gmail.com',
       'platform': 'mail'
     },
     {
-      'photo': 'images/icons8-call-100.png',
+      'photo': 'assets/images/icons8-call-100.png',
       'text': '9875719540',
       'url': 'tel:+919875179540',
       'platform': 'call'
     },
     {
-      'photo': 'images/fiverr.png',
+      'photo': 'assets/images/fiverr.png',
       'text': 'mohammedraza58',
       'url': 'https://www.fiverr.com/mohammedraza58',
       'platform': 'fivver.com'

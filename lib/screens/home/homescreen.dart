@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                         repeatForever: true,
                         animatedTexts: [
                           FadeAnimatedText(
-                            "And I am a Moblie app developer",
+                            "I am a Moblie app developer",
                             duration: Duration(milliseconds: 3000),
                             textStyle: TextStyle(
                                 fontSize: 38,
@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                       child: CircleAvatar(
                           backgroundColor: Colors.transparent,
                           radius: 100,
-                          backgroundImage: AssetImage("images/me.jpg")),
+                          backgroundImage: AssetImage("assets/images/me.jpg")),
                     ))
               ],
             ),

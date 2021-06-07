@@ -20,36 +20,36 @@ class AboutMobile extends StatelessWidget {
             children: [
               TableRow(children: [
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 2),
+                    padding: EdgeInsets.symmetric(vertical: 4),
                     child: aboutTile("Name", "Mohammed")),
 
                 // Container(),
               ]),
               TableRow(children: [
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 2),
+                    padding: EdgeInsets.symmetric(vertical: 4),
                     child: aboutTile("Age", '20')),
               ]),
               TableRow(children: [
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 2),
+                    padding: EdgeInsets.symmetric(vertical: 4),
                     child: aboutTile("Education", 'B.C.A')),
               ]),
               TableRow(children: [
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 2),
+                    padding: EdgeInsets.symmetric(vertical: 4),
                     child: aboutTile("Job", 'Freelancer')),
               ]),
               TableRow(children: [
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 2),
+                    padding: EdgeInsets.symmetric(vertical: 4),
                     child: aboutTile("Location", "Mumbai india")),
 
                 // Container(),
               ]),
               TableRow(children: [
                 Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
+                    padding: EdgeInsets.symmetric(vertical: 4),
                     child: aboutTile("Language", "Hindi-English")),
               ])
             ],
@@ -93,8 +93,8 @@ class AboutMobile extends StatelessWidget {
   CircularPercentIndicator percentageWidget(
       String percent, String text, int duretion, double circle) {
     return CircularPercentIndicator(
-      radius: 80.0,
-      lineWidth: 7.0,
+      radius: 110.0,
+      lineWidth: 15.0,
       backgroundColor: Colors.white10,
       animation: true,
       animationDuration: duretion,
@@ -116,24 +116,27 @@ class AboutMobile extends StatelessWidget {
     );
   }
 
-  Row aboutTile(String text1, String text2) {
-    return Row(children: [
-      Icon(
-        Icons.fast_forward_rounded,
-        color: Colors.green,
-      ),
-      SizedBox(
-        width: 5,
-      ),
-      Text(text1, style: TextStyle(color: Colors.white, fontSize: 15)),
-      SizedBox(
-        width: 15,
-      ),
-      Text(
-        text2,
-        style: TextStyle(
-            color: Colors.white54, fontSize: 16, fontWeight: FontWeight.bold),
-      ),
-    ]);
+  Widget aboutTile(String text1, String text2) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 11.0),
+      child: Row(children: [
+        Icon(
+          Icons.fast_forward_rounded,
+          color: Colors.green,
+        ),
+        SizedBox(
+          width: 5,
+        ),
+        Text(text1, style: TextStyle(color: Colors.white, fontSize: 17)),
+        SizedBox(
+          width: 15,
+        ),
+        Text(
+          text2,
+          style: TextStyle(
+              color: Colors.white54, fontSize: 19, fontWeight: FontWeight.bold),
+        ),
+      ]),
+    );
   }
 }

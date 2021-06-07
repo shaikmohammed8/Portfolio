@@ -19,14 +19,14 @@ class PortFolioMobile extends StatelessWidget {
           ),
           SizedBox(height: 10),
           SizedBox(
-            height: 250,
+            height: 220,
             child: Swiper(
                 autoplay: true,
                 index: 1,
                 autoplayDisableOnInteraction: true,
                 loop: false,
                 viewportFraction: 0.8,
-                scale: 0.8,
+                scale: 0.9,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (ctx, index) {
                   return buildCard(
@@ -45,7 +45,7 @@ class PortFolioMobile extends StatelessWidget {
           ),
           SizedBox(height: 10),
           SizedBox(
-            height: 250,
+            height: 200,
             child: Swiper(
                 index: 1,
                 autoplay: true,
@@ -53,7 +53,7 @@ class PortFolioMobile extends StatelessWidget {
                 autoplayDisableOnInteraction: true,
                 loop: false,
                 viewportFraction: 0.8,
-                scale: 0.8,
+                scale: 0.9,
                 // pagination: new SwiperPagination(),
                 //control: new SwiperControl(),
                 outer: true,
@@ -92,36 +92,41 @@ class PortFolioMobile extends StatelessWidget {
     );
   }
 
-  Card buildCard(String path, index, title, text) {
-    return Card(
-        color: Colors.transparent,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Color(0xFF154c79).withOpacity(0.5)),
-          height: 150,
-          width: 325,
-          child: Column(
-            children: [
-              Image.asset(path, height: 50),
-              SizedBox(height: 4),
-              Text(
-                title,
-                overflow: TextOverflow.fade,
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-              SizedBox(height: 5),
-              Text(
-                text,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.fade,
-                style: TextStyle(
-                    letterSpacing: 1, color: Colors.white60, fontSize: 15),
-              ),
-            ],
-          ),
-        ));
+  Widget buildCard(String path, index, title, text) {
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: Card(
+          color: Colors.transparent,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          child: Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Color(0xFF154c79).withOpacity(0.5)),
+            height: 150,
+            width: 325,
+            child: Column(
+              children: [
+                Image.asset(path, height: 50),
+                SizedBox(height: 4),
+                Text(
+                  title,
+                  overflow: TextOverflow.fade,
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+                SizedBox(height: 5),
+                Flexible(
+                  child: Text(
+                    text,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.clip,
+                    style: TextStyle(color: Colors.white60, fontSize: 14),
+                  ),
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }

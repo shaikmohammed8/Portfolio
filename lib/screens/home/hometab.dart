@@ -19,7 +19,9 @@ class HomeTab extends StatelessWidget {
                   shape: BoxShape.circle,
                   border: Border.all(color: Color(0xFF26E07F), width: 3)),
               child: CircleAvatar(
-                  radius: 90, backgroundImage: AssetImage("images/me.jpg")),
+                  backgroundColor: Colors.transparent,
+                  radius: 90,
+                  backgroundImage: AssetImage("assets/images/me.jpg")),
             )),
             SizedBox(
               height: 20,

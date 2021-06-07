@@ -20,24 +20,30 @@ class ContactMobile extends StatelessWidget {
             style: TextStyle(fontSize: 17, color: Colors.white60),
           ),
           SizedBox(height: 20),
-          edittextbuild("Name", Icons.person, controller.nameController, (val) {
-            if (GetUtils.isUsername(val)) {
-              return null;
-            } else
-              return "Please provide a valide name";
-          }, TextInputType.name),
+          Center(
+            child: edittextbuild(
+                "Name", Icons.person, controller.nameController, (val) {
+              if (GetUtils.isUsername(val)) {
+                return null;
+              } else
+                return "Please provide a valide name";
+            }, TextInputType.name),
+          ),
           SizedBox(height: 12),
-          edittextbuild("Email", Icons.mail, controller.emailController, (val) {
-            if (GetUtils.isEmail(val)) {
-              return null;
-            } else
-              return "Please provide a valide Email";
-          }, TextInputType.emailAddress),
+          Center(
+            child: edittextbuild(
+                "Email", Icons.mail, controller.emailController, (val) {
+              if (GetUtils.isEmail(val)) {
+                return null;
+              } else
+                return "Please provide a valide Email";
+            }, TextInputType.emailAddress),
+          ),
           SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Center(
+              Flexible(
                 child: edittextbuild("Budget", Icons.attach_money_rounded,
                     controller.budgetController, (String val) {
                   if (val.length != 0) {
@@ -46,7 +52,7 @@ class ContactMobile extends StatelessWidget {
                     return "Please Enter budget";
                 }, TextInputType.number, width: 150),
               ),
-              Center(
+              Flexible(
                 child: edittextbuild("Days", Icons.calendar_today_rounded,
                     controller.daysController, (String val) {
                   if (val.length != 0) {
@@ -156,19 +162,19 @@ class ContactMobile extends StatelessWidget {
 
   List otherOptiosns = [
     {
-      'photo': 'images/icons8-mail-128.png',
+      'photo': 'assets/images/icons8-mail-128.png',
       'text': 'mohammedrazachandwala@gmail.com',
       'url': 'mailto:mohammedrazachandwala@gmail.com',
       'platform': 'mail'
     },
     {
-      'photo': 'images/icons8-call-100.png',
+      'photo': 'assets/images/icons8-call-100.png',
       'text': '9875719540',
       'url': 'tel:+919875179540',
       'platform': 'call'
     },
     {
-      'photo': 'images/fiverr.png',
+      'photo': 'assets/images/fiverr.png',
       'text': 'mohammedraza58',
       'url': 'https://www.fiverr.com/mohammedraza58',
       'platform': 'fivver.com'

@@ -22,40 +22,50 @@ class ContactScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              edittextbuild("Name", Icons.person, controller.nameController,
-                  (val) {
-                if (GetUtils.isUsername(val)) {
-                  return null;
-                } else
-                  return "Please provide a valide name";
-              }, TextInputType.name),
-              edittextbuild("Email", Icons.mail, controller.emailController,
-                  (val) {
-                if (GetUtils.isEmail(val)) {
-                  return null;
-                } else
-                  return "Please provide a valide Email";
-              }, TextInputType.emailAddress),
+              Flexible(
+                child: edittextbuild(
+                    "Name", Icons.person, controller.nameController, (val) {
+                  if (GetUtils.isUsername(val)) {
+                    return null;
+                  } else
+                    return "Please provide a valide name";
+                }, TextInputType.name),
+              ),
+              SizedBox(width: 5),
+              Flexible(
+                child: edittextbuild(
+                    "Email", Icons.mail, controller.emailController, (val) {
+                  if (GetUtils.isEmail(val)) {
+                    return null;
+                  } else
+                    return "Please provide a valide Email";
+                }, TextInputType.emailAddress),
+              ),
             ],
           ),
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              edittextbuild("Budget", Icons.attach_money_rounded,
-                  controller.budgetController, (String val) {
-                if (val.length != 0) {
-                  return null;
-                } else
-                  return "Please Enter budget";
-              }, TextInputType.number),
-              edittextbuild("Days", Icons.calendar_today_rounded,
-                  controller.daysController, (String val) {
-                if (val.length != 0) {
-                  return null;
-                } else
-                  return "this field is mendatory";
-              }, TextInputType.number)
+              Flexible(
+                child: edittextbuild("Budget", Icons.attach_money_rounded,
+                    controller.budgetController, (String val) {
+                  if (val.length != 0) {
+                    return null;
+                  } else
+                    return "Please Enter budget";
+                }, TextInputType.number),
+              ),
+              SizedBox(width: 5),
+              Flexible(
+                child: edittextbuild("Days", Icons.calendar_today_rounded,
+                    controller.daysController, (String val) {
+                  if (val.length != 0) {
+                    return null;
+                  } else
+                    return "this field is mendatory";
+                }, TextInputType.number),
+              )
             ],
           ),
           SizedBox(height: 20),
@@ -64,7 +74,7 @@ class ContactScreen extends StatelessWidget {
               height: 190,
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(15)),
-              width: 1050,
+              width: 1085,
               child: TextFormField(
                 controller: controller.projectController,
                 maxLength: 1000,
@@ -132,16 +142,18 @@ class ContactScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildCard("images/icons8-mail-128.png",
+              buildCard("assets/images/icons8-mail-128.png",
                   "mohammedrazachandwala@gmail.com", "mail", () {
                 controller
                     .launchUrl("mailto:mohammedrazachandwala@gmail.comyo");
               }),
-              buildCard("images/icons8-call-100.png", "+919875719540", 'call',
+              buildCard(
+                  "assets/images/icons8-call-100.png", "+919875719540", 'call',
                   () {
                 controller.launchUrl("tel:9875179540");
               }),
-              buildCard("images/fiverr.png", "mohammedraza58", 'fivver.com',
+              buildCard(
+                  "assets/images/fiverr.png", "mohammedraza58", 'fivver.com',
                   () {
                 controller.launchUrl("https://www.fiverr.com/mohammedraza58");
               }),

@@ -19,7 +19,9 @@ class HomeMobile extends StatelessWidget {
                   shape: BoxShape.circle,
                   border: Border.all(color: Color(0xFF26E07F), width: 2.5)),
               child: CircleAvatar(
-                  radius: 70, backgroundImage: AssetImage("images/me.jpg")),
+                  backgroundColor: Colors.transparent,
+                  radius: 70,
+                  backgroundImage: AssetImage("assets/images/me.jpg")),
             )),
             SizedBox(
               height: 20,
@@ -28,17 +30,6 @@ class HomeMobile extends StatelessWidget {
               "Hey, my name is",
               style: TextStyle(fontSize: 16, color: Color(0xFF26E07F)),
             ),
-            // SizedBox(
-            //   height: 10,
-            // ),
-            // Text(
-            //   "Mohammed raza",
-            //   style: TextStyle(
-            //       fontSize: 25,
-            //       fontWeight: FontWeight.bold,
-            //       color: Colors.white),
-            // ),
-
             AnimatedTextKit(
                 pause: Duration(milliseconds: 1000),
                 repeatForever: true,
@@ -62,7 +53,8 @@ class HomeMobile extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white24),
             ),
-            Logos(),
+            SingleChildScrollView(
+                scrollDirection: Axis.horizontal, child: Logos()),
             SizedBox(
               height: 20,
             ),
@@ -98,13 +90,6 @@ class HomeMobile extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 50),
-            child: IconButton(
-                icon: Icon(CupertinoIcons.chevron_compact_down,
-                    size: 70, color: Colors.white24),
-                onPressed: controller.cahngeToAbout),
-          )
         ],
       ),
     );
