@@ -69,7 +69,9 @@ class PortFolio extends StatelessWidget {
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.launchUrl("https://github.com/shaikmohammed8");
+                },
                 child: Text(
                   "Go to github",
                   style: TextStyle(fontWeight: FontWeight.bold),

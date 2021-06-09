@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Container edittextbuild(
     String text, IconData icon, controller, Function val, TextInputType type,
@@ -37,6 +38,13 @@ Container edittextbuild(
       ),
     ),
   );
+}
+
+hidekeyboard() {
+  FocusScopeNode currentFocus = FocusScope.of(Get.context);
+  if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+    FocusManager.instance.primaryFocus.unfocus();
+  }
 }
 
 Widget buildCard(String path, String text, String platform, Function fun) {

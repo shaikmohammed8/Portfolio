@@ -2,6 +2,7 @@ import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/about/aboutResponsibe.dart';
 import 'package:first/screens/contact/contactresponsive.dart';
+import 'package:first/screens/contact/widgets.dart';
 import 'package:first/screens/home/homeresponsive.dart';
 import 'package:first/screens/portfolio/portfolioresponsive.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,14 @@ class MobileMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: Padding(
+            padding: EdgeInsets.all(8),
+            child: Image.asset(
+              "images/logo.png",
+              height: 24,
+              width: 24,
+            ),
+          ),
           centerTitle: true,
           title: Obx(
             () => Text(
@@ -34,6 +43,7 @@ class MobileMain extends StatelessWidget {
             children: [
               Expanded(
                 child: PageView(
+                    physics: NeverScrollableScrollPhysics(),
                     controller: controller.controller,
                     scrollDirection: Axis.vertical,
                     children: [
@@ -48,9 +58,30 @@ class MobileMain extends StatelessWidget {
           ),
         ),
         floatingActionButton: FabCircularMenu(
+            onDisplayChange: hidekeyboard(),
             key: fabkey,
-            fabOpenIcon: Icon(Icons.sort, color: Color(0xFF020c1b)),
-            fabCloseIcon: Icon(Icons.clear, color: Color(0xFF26E07F)),
+            fabOpenIcon: InkWell(
+                onTap: () {
+                  hidekeyboard();
+                  fabkey.currentState.isOpen
+                      ? fabkey.currentState.close()
+                      : fabkey.currentState.open();
+                },
+                child: Container(
+                    height: 60,
+                    width: 60,
+                    child: Icon(Icons.sort, color: Color(0xFF020c1b)))),
+            fabCloseIcon: InkWell(
+                onTap: () {
+                  hidekeyboard();
+                  fabkey.currentState.isOpen
+                      ? fabkey.currentState.close()
+                      : fabkey.currentState.open();
+                },
+                child: Container(
+                    height: 60,
+                    width: 60,
+                    child: Icon(Icons.clear, color: Color(0xFF26E07F)))),
             fabSize: 50,
             ringColor: Color(0xFF154c79).withOpacity(0.3),
             fabCloseColor: Color(0xFF26E07F),
@@ -92,6 +123,13 @@ class MobileMain extends StatelessWidget {
                     }
                   }),
             ]));
+  }
+
+  hidekeyboard() {
+    FocusScopeNode currentFocus = FocusScope.of(Get.context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus.unfocus();
+    }
   }
 
   String appbarTitle(int index) {

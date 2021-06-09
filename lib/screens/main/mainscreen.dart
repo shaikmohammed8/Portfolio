@@ -24,7 +24,7 @@ class MainScreen extends StatelessWidget {
 
   Container mainbuild() {
     return Container(
-      margin: EdgeInsets.all(22),
+      // margin: EdgeInsets.all(22),
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
           color: Color(0xFF020c1b),
@@ -37,8 +37,11 @@ class MainScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("{Mohammed}",
-                  style: TextStyle(color: Colors.white, fontSize: 25)),
+              Image.asset(
+                "images/logo.png",
+                height: 50,
+                width: 50,
+              ),
               Spacer(),
               TextButton(
                   onPressed: controller.changeToHome,

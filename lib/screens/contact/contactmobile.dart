@@ -150,6 +150,7 @@ class ContactMobile extends StatelessWidget {
                     otherOptiosns[index]['photo'],
                     otherOptiosns[index]['text'],
                     otherOptiosns[index]['platform'], () {
+                  hidekeyboard();
                   controller.launchUrl(otherOptiosns[index]['url']);
                 });
               },
@@ -182,6 +183,7 @@ class ContactMobile extends StatelessWidget {
   ];
 
   onSend() {
+    hidekeyboard();
     if (formkey.currentState.validate()) {
       controller.sendDetails();
     }

@@ -70,7 +70,9 @@ class HomeTab extends StatelessWidget {
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.cahngeToContact();
+                },
                 child: Text(
                   "Contact me",
                   style: TextStyle(fontWeight: FontWeight.bold),

@@ -58,7 +58,9 @@ class HomeScreen extends StatelessWidget {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.cahngeToContact();
+                    },
                     child: Text(
                       "Contact me",
                       style: TextStyle(fontWeight: FontWeight.bold),

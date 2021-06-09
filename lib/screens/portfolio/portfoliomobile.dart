@@ -1,11 +1,14 @@
 import 'package:first/consts.dart';
+import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/animations/widgetanimator.dart';
 import 'package:first/widgets/projectCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 import 'package:flutter_card_swipper/widgets/flutter_page_indicator/flutter_page_indicator.dart';
+import 'package:get/get.dart';
 
 class PortFolioMobile extends StatelessWidget {
+  var controller = Get.find<MainController>();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -73,7 +76,9 @@ class PortFolioMobile extends StatelessWidget {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.launchUrl("https://github.com/shaikmohammed8");
+              },
               child: Text(
                 "Go to github",
                 style: TextStyle(fontWeight: FontWeight.bold),

@@ -19,54 +19,64 @@ class ContactScreen extends StatelessWidget {
             style: TextStyle(fontSize: 20, color: Colors.white60),
           ),
           SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Flexible(
-                child: edittextbuild(
-                    "Name", Icons.person, controller.nameController, (val) {
-                  if (GetUtils.isUsername(val)) {
-                    return null;
-                  } else
-                    return "Please provide a valide name";
-                }, TextInputType.name),
-              ),
-              SizedBox(width: 5),
-              Flexible(
-                child: edittextbuild(
-                    "Email", Icons.mail, controller.emailController, (val) {
-                  if (GetUtils.isEmail(val)) {
-                    return null;
-                  } else
-                    return "Please provide a valide Email";
-                }, TextInputType.emailAddress),
-              ),
-            ],
-          ),
+          Center(
+              child: Container(
+                  width: 1085,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        child: edittextbuild(
+                            "Name", Icons.person, controller.nameController,
+                            (val) {
+                          if (GetUtils.isUsername(val)) {
+                            return null;
+                          } else
+                            return "Please provide a valide name";
+                        }, TextInputType.name),
+                      ),
+                      SizedBox(width: 5),
+                      Flexible(
+                        child: edittextbuild(
+                            "Email", Icons.mail, controller.emailController,
+                            (val) {
+                          if (GetUtils.isEmail(val)) {
+                            return null;
+                          } else
+                            return "Please provide a valide Email";
+                        }, TextInputType.emailAddress),
+                      ),
+                    ],
+                  ))),
           SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Flexible(
-                child: edittextbuild("Budget", Icons.attach_money_rounded,
-                    controller.budgetController, (String val) {
-                  if (val.length != 0) {
-                    return null;
-                  } else
-                    return "Please Enter budget";
-                }, TextInputType.number),
+          Center(
+            child: Container(
+              width: 1085,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Flexible(
+                    child: edittextbuild("Budget", Icons.attach_money_rounded,
+                        controller.budgetController, (String val) {
+                      if (val.length != 0) {
+                        return null;
+                      } else
+                        return "Please Enter budget";
+                    }, TextInputType.number),
+                  ),
+                  SizedBox(width: 5),
+                  Flexible(
+                    child: edittextbuild("Days", Icons.calendar_today_rounded,
+                        controller.daysController, (String val) {
+                      if (val.length != 0) {
+                        return null;
+                      } else
+                        return "this field is mendatory";
+                    }, TextInputType.number),
+                  )
+                ],
               ),
-              SizedBox(width: 5),
-              Flexible(
-                child: edittextbuild("Days", Icons.calendar_today_rounded,
-                    controller.daysController, (String val) {
-                  if (val.length != 0) {
-                    return null;
-                  } else
-                    return "this field is mendatory";
-                }, TextInputType.number),
-              )
-            ],
+            ),
           ),
           SizedBox(height: 20),
           Center(

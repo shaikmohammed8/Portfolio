@@ -60,7 +60,9 @@ class HomeMobile extends StatelessWidget {
             ),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.cahngeToContact();
+                },
                 child: Text(
                   "Contact me",
                   style: TextStyle(fontWeight: FontWeight.bold),
