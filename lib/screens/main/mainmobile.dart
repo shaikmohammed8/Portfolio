@@ -53,7 +53,7 @@ class MobileMain extends StatelessWidget {
             Icons.phone_enabled_rounded,
             "Contact",
             () {
-              controller.changeToHome();
+              controller.changeToContact();
               Get.back();
             },
           ),
