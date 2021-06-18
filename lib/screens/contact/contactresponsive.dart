@@ -11,7 +11,7 @@ class ContactResponsive extends StatelessWidget {
       mobile: ContactMobile(),
       tablet: ContactTab(),
       desktop: Padding(
-        padding: const EdgeInsets.only(top: 70),
+        padding: const EdgeInsets.only(left: 40, right: 40, top: 70.0),
         child: ContactScreen(),
       ),
     );

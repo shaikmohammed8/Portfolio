@@ -9,7 +9,7 @@ class AboutResponsive extends StatelessWidget {
     return ScreenTypeLayout(
       mobile: AboutMobile(),
       desktop: Padding(
-        padding: const EdgeInsets.only(top: 70.0),
+        padding: const EdgeInsets.only(left: 40, right: 40, top: 70.0),
         child: AboutScreen(),
       ),
       tablet: AboutScreen(),

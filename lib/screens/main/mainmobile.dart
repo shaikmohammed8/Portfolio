@@ -2,7 +2,7 @@ import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/about/aboutResponsibe.dart';
 import 'package:first/screens/contact/contactresponsive.dart';
-import 'package:first/screens/contact/widgets.dart';
+
 import 'package:first/screens/home/homeresponsive.dart';
 import 'package:first/screens/portfolio/portfolioresponsive.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +16,11 @@ class MobileMain extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leading: Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.only(top: 10, bottom: 10, right: 7, left: 16),
             child: Image.asset(
-              "images/logo.png",
-              height: 24,
-              width: 24,
+              "assets/images/logo.png",
+              height: 20,
+              width: 20,
             ),
           ),
           centerTitle: true,

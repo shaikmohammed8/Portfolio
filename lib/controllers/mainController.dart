@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,6 +7,7 @@ import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 class MainController extends GetxController {
   var controller = PageController();
   var index = 0.obs;
+  var scrolcontroller = TrackingScrollController();
   var isHoverd = false.obs;
   var nameController = TextEditingController();
   var emailController = TextEditingController();
@@ -29,6 +29,7 @@ class MainController extends GetxController {
 
   void changeToPortFolio() {
     index.value = 2;
+
     controller.animateToPage(index.value,
         duration: Duration(milliseconds: 700), curve: Curves.linearToEaseOut);
   }

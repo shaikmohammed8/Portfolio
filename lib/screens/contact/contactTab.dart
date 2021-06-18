@@ -1,7 +1,6 @@
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/contact/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 import 'package:get/get.dart';
 
 class ContactTab extends StatelessWidget {

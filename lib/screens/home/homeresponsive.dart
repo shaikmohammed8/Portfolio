@@ -14,7 +14,7 @@ class HomeResponsive extends StatelessWidget {
         child: HomeTab(),
       ),
       desktop: Padding(
-        padding: const EdgeInsets.only(top: 100),
+        padding: const EdgeInsets.only(left: 40, right: 40, top: 100.0),
         child: HomeScreen(),
       ),
     );

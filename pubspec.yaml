@@ -37,7 +37,10 @@ dependencies:
   whatsapp_unilink: ^2.0.0
   google_fonts: ^1.1.2
   flutter_card_swipper: ^0.4.0
+  flutter_native_splash: ^1.2.0
   fab_circular_menu: ^1.0.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +71,7 @@ flutter:
     - assets/images/icons8-mail-128.png
     - assets/images/icons8-call-100.png
     - assets/images/fiverr.png
+    - assets/images/logo.png
 
     
 

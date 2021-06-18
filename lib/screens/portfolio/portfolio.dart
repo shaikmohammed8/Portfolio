@@ -10,8 +10,8 @@ class PortFolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WidgetAnimator(
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: WidgetAnimator(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

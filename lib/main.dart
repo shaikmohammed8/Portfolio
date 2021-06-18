@@ -1,4 +1,3 @@
-import 'package:first/screens/home/homescreen.dart';
 import 'package:first/screens/main/mainresponsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +16,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
+          highlightColor: Colors.green,
           fontFamily: GoogleFonts.workSans().fontFamily,
           primarySwatch: Colors.blue,
         ),

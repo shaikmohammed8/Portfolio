@@ -1,6 +1,4 @@
-import 'package:first/controllers/mainController.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ProjectCard extends StatefulWidget {
   final photo, text, title, height;

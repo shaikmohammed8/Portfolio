@@ -1,12 +1,8 @@
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/about/aboutResponsibe.dart';
-import 'package:first/screens/about/aboutwidget.dart';
-import 'package:first/screens/contact/contact.dart';
 import 'package:first/screens/contact/contactresponsive.dart';
 import 'package:first/screens/home/homeresponsive.dart';
-import 'package:first/screens/home/homescreen.dart';
 import 'package:first/screens/portfolio/portfolioresponsive.dart';
-import 'package:first/widgets/logos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,84 +20,88 @@ class MainScreen extends StatelessWidget {
 
   Container mainbuild() {
     return Container(
-      // margin: EdgeInsets.all(22),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: Color(0xFF020c1b),
-          spreadRadius: 0.01,
-          blurRadius: 10,
-        )
-      ], color: Color(0xFF020c1b), borderRadius: BorderRadius.circular(15)),
-      padding: EdgeInsets.only(top: 16, left: 40, right: 40),
+      decoration: BoxDecoration(
+        color: Color(0xFF020c1b),
+      ),
       child: Column(
         children: [
-          Row(
-            children: [
-              Image.asset(
-                "images/logo.png",
-                height: 50,
-                width: 50,
-              ),
-              Spacer(),
-              TextButton(
-                  onPressed: controller.changeToHome,
-                  child: Obx(
-                    () => Text("Home",
+          Padding(
+            padding:
+                const EdgeInsets.only(top: 8, bottom: 8, right: 16, left: 16),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    "assets/images/logo.png",
+                    height: 40,
+                    width: 40,
+                  ),
+                ),
+                Spacer(),
+                TextButton(
+                    onPressed: controller.changeToHome,
+                    child: Obx(
+                      () => Text("Home",
+                          style: TextStyle(
+                              color: controller.index.value == 0
+                                  ? Color(0xFF26E07F)
+                                  : Colors.white,
+                              fontSize: 18)),
+                    )),
+                SizedBox(
+                  width: 25,
+                ),
+                TextButton(
+                    onPressed: controller.cahngeToAbout,
+                    child: Obx(() => Text("About",
                         style: TextStyle(
-                            color: controller.index.value == 0
+                            color: controller.index.value == 1
                                 ? Color(0xFF26E07F)
                                 : Colors.white,
-                            fontSize: 18)),
-                  )),
-              SizedBox(
-                width: 25,
-              ),
-              TextButton(
-                  onPressed: controller.cahngeToAbout,
-                  child: Obx(() => Text("About",
-                      style: TextStyle(
-                          color: controller.index.value == 1
-                              ? Color(0xFF26E07F)
-                              : Colors.white,
-                          fontSize: 18)))),
-              SizedBox(
-                width: 25,
-              ),
-              TextButton(
-                  onPressed: controller.changeToPortFolio,
-                  child: Obx(() => Text("Portfolio",
-                      style: TextStyle(
-                          color: controller.index.value == 2
-                              ? Color(0xFF26E07F)
-                              : Colors.white,
-                          fontSize: 18)))),
-              SizedBox(
-                width: 25,
-              ),
-              TextButton(
-                  onPressed: controller.cahngeToContact,
-                  child: Obx(() => Text("Contact",
-                      style: TextStyle(
-                          color: controller.index.value == 3
-                              ? Color(0xFF26E07F)
-                              : Colors.white,
-                          fontSize: 18)))),
-            ],
+                            fontSize: 18)))),
+                SizedBox(
+                  width: 25,
+                ),
+                TextButton(
+                    onPressed: controller.changeToPortFolio,
+                    child: Obx(() => Text("Portfolio",
+                        style: TextStyle(
+                            color: controller.index.value == 2
+                                ? Color(0xFF26E07F)
+                                : Colors.white,
+                            fontSize: 18)))),
+                SizedBox(
+                  width: 25,
+                ),
+                TextButton(
+                    onPressed: controller.cahngeToContact,
+                    child: Obx(() => Text("Contact",
+                        style: TextStyle(
+                            color: controller.index.value == 3
+                                ? Color(0xFF26E07F)
+                                : Colors.white,
+                            fontSize: 18)))),
+              ],
+            ),
           ),
           Expanded(
             child: PageView(
                 controller: controller.controller,
+                physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
-                children: [
-                  HomeResponsive(),
-                  AboutResponsive(),
-                  PortFolioResponsive(),
-                  ContactResponsive()
-                ],
+                children: children,
                 onPageChanged: controller.onPageChanged),
           ),
         ],
       ),
     );
   }
+
+  List<Widget> children = [
+    HomeResponsive(),
+    AboutResponsive(),
+    PortFolioResponsive(),
+    ContactResponsive()
+  ];
 }
