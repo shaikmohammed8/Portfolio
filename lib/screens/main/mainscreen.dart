@@ -1,6 +1,7 @@
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/about/aboutResponsibe.dart';
 import 'package:first/screens/contact/contactresponsive.dart';
+import 'package:first/screens/download/downloadResponsive.dart';
 import 'package:first/screens/home/homeresponsive.dart';
 import 'package:first/screens/portfolio/portfolioresponsive.dart';
 import 'package:flutter/cupertino.dart';
@@ -82,6 +83,17 @@ class MainScreen extends StatelessWidget {
                                 ? Color(0xFF26E07F)
                                 : Colors.white,
                             fontSize: 18)))),
+                SizedBox(
+                  width: 25,
+                ),
+                TextButton(
+                    onPressed: controller.cahngeToDownload,
+                    child: Obx(() => Text("Download",
+                        style: TextStyle(
+                            color: controller.index.value == 4
+                                ? Color(0xFF26E07F)
+                                : Colors.white,
+                            fontSize: 18)))),
               ],
             ),
           ),
@@ -102,6 +114,7 @@ class MainScreen extends StatelessWidget {
     HomeResponsive(),
     AboutResponsive(),
     PortFolioResponsive(),
-    ContactResponsive()
+    ContactResponsive(),
+    DownloadResponsive()
   ];
 }

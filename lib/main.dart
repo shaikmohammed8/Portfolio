@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       onTap: () => hidekeyboard(),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Shaik Mohammed',
         theme: ThemeData(
           highlightColor: Colors.green,
           fontFamily: GoogleFonts.workSans().fontFamily,

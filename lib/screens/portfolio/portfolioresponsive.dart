@@ -10,7 +10,7 @@ class PortFolioResponsive extends StatelessWidget {
       mobile: PortFolioMobile(),
       tablet: PortFolio(),
       desktop: Padding(
-        padding: const EdgeInsets.only(left: 40, right: 40, top: 50.0),
+        padding: const EdgeInsets.only(left: 40, right: 40, top: 16.0),
         child: PortFolio(),
       ),
     );

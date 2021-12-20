@@ -106,7 +106,7 @@ class ContactScreen extends StatelessWidget {
                       prefixIcon: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 0, 140),
                         child: Icon(
-                          Icons.mode_edit_outline_rounded,
+                          Icons.mode_edit,
                           color: Color(0xFF26E07F),
                         ),
                       ),

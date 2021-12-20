@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class ProjectCard extends StatefulWidget {
-  final photo, text, title, height;
-  ProjectCard({this.photo, this.text, this.title, this.height = 300});
+  final photo, text, title, height, onTap, mouseCursor;
+  ProjectCard(
+      {this.photo,
+      this.text,
+      this.title,
+      this.height = 300,
+      this.onTap,
+      this.mouseCursor = SystemMouseCursors.allScroll});
 
   @override
   _ProjectCardState createState() => _ProjectCardState();
@@ -13,8 +20,8 @@ class _ProjectCardState extends State<ProjectCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {},
-        mouseCursor: SystemMouseCursors.allScroll,
+        onTap: widget.onTap ?? () {},
+        mouseCursor: widget.mouseCursor,
         onHover: (t) {
           setState(() {
             hover = t;

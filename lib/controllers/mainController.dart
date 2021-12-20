@@ -46,6 +46,12 @@ class MainController extends GetxController {
         duration: Duration(milliseconds: 700), curve: Curves.linearToEaseOut);
   }
 
+  void cahngeToDownload() {
+    index.value = 4;
+    controller.animateToPage(index.value,
+        duration: Duration(milliseconds: 700), curve: Curves.linearToEaseOut);
+  }
+
   void onPageChanged(int indexx) {
     index.value = indexx;
   }

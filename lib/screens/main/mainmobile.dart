@@ -2,6 +2,7 @@ import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:first/controllers/mainController.dart';
 import 'package:first/screens/about/aboutResponsibe.dart';
 import 'package:first/screens/contact/contactresponsive.dart';
+import 'package:first/screens/download/downloadResponsive.dart';
 
 import 'package:first/screens/home/homeresponsive.dart';
 import 'package:first/screens/portfolio/portfolioresponsive.dart';
@@ -50,7 +51,8 @@ class MobileMain extends StatelessWidget {
                       HomeResponsive(),
                       AboutResponsive(),
                       PortFolioResponsive(),
-                      ContactResponsive()
+                      ContactResponsive(),
+                      DownloadResponsive()
                     ],
                     onPageChanged: controller.onPageChanged),
               ),
@@ -87,6 +89,17 @@ class MobileMain extends StatelessWidget {
             fabCloseColor: Color(0xFF26E07F),
             fabOpenColor: Color(0xFF154c79).withOpacity(0.5),
             children: <Widget>[
+              IconButton(
+                  icon: Icon(
+                    Icons.cloud_download,
+                    color: Color(0xFF26E07F),
+                  ),
+                  onPressed: () {
+                    controller.cahngeToDownload();
+                    if (fabkey.currentState.isOpen) {
+                      fabkey.currentState.close();
+                    }
+                  }),
               IconButton(
                   icon: Icon(Icons.email_rounded, color: Color(0xFF26E07F)),
                   onPressed: () {
@@ -142,6 +155,8 @@ class MobileMain extends StatelessWidget {
         return "Work";
       case 3:
         return "Contact";
+      case 4:
+        return "Download";
         break;
       default:
         return "";

@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                     child: WidgetAnimator(
                       child: CircleAvatar(
                           backgroundColor: Colors.transparent,
-                          radius: 100,
+                          radius: 130,
                           backgroundImage: AssetImage("assets/images/me.jpg")),
                     ))
               ],
